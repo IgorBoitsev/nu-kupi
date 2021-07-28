@@ -1,4 +1,28 @@
-const mainSection = document.querySelector('.main');
+const mainSection = document.querySelector('.main'),
+      sidebar = document.querySelector('.sidebar'),
+      servicesOrCommercial = document.querySelector('.services-or-commercial');
+
+// Набор сервисов для сайдбара
+const services = {
+  shipping: {
+    title: 'Доставка',
+    text: 'Проверка при получении и возможность бесплатно вернуть товар',
+    src: 'img/shipping.svg',
+    alt: 'icon: shipping'
+  },
+  avtoteka: {
+    title: 'Автотека',
+    text: 'Отчёт с историей авто: пробег, владельцы, сведения о залоге, ДТП и ремонтах',
+    src: 'img/avtoteka.svg',
+    alt: 'icon: avtoteka'
+  },
+  onlineBooking: {
+    title: 'Онлайн-ьронирование жилья',
+    text: 'Посуточная аренда квартир и домов: большой выбор вариантов для поездок по России',
+    src: 'img/online-booking.svg',
+    alt: 'icon: online-booking'
+  }
+}
 
 // Функция создания элемента на странице
 const createPageElement = (tag, className, attributes) => {
@@ -98,8 +122,39 @@ const renderItemsList = (callback) => {
     .catch(err => console.error(err));
 }
 
+// Функцмя создания боковой колонки
+const createServiceSidebar = (service) => {
+  const serviceItem = createPageElement('div', ['services']);
+  const srviceItemImage = createPageElement('img', 
+                                           ['service-image'],
+                                          {
+                                            src: service.src,
+                                            alt: service.alt
+                                          });
+  const serviceTitle = createPageElement('h5', ['service-title'], {textContent: service.title})
+  const serviceText = createPageElement('p', ['service-text'], {textContent: service.text});
+
+  serviceItem.append(srviceItemImage, serviceTitle, serviceText);
+  servicesOrCommercial.insertAdjacentElement('afterbegin', serviceItem);
+}
+// Отриовка сервисов для сайдбара
+const renderSevicesList = (services) => {
+  // Предварительная очистка сайдбара
+  servicesOrCommercial.textContent = '';
+
+  // И заполнение его же нужной информацией
+  const sidebarTitle =  createPageElement('h4', ['page-title'], {textContent: 'Сервисы и услуги'});
+
+  for (const service in services)
+    createServiceSidebar(services[service]);
+
+  servicesOrCommercial.insertAdjacentElement('afterbegin', sidebarTitle);
+}
+
 // Вывод карточек 
 renderItemsList(createCardGood);
+// Вывод боковой колонки сервисов и услуг
+renderSevicesList(services);
 
 
 mainSection.addEventListener('click', event => {
