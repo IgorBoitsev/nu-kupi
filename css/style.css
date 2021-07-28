@@ -3,17 +3,20 @@ body {
   font-size: 14px;
   color: #0A143A;
 }
-/* ------ HEADER ------ */
-.header {
+.container {
   max-width: 1146px;
   margin: auto;
+}
+
+/* ------ HEADER ------ */
+.header {
+  margin-top: 30px;
 }
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 36px;
-  margin-top: 30px;
 }
 .navbar-menu {
   margin-right: auto;
@@ -77,4 +80,98 @@ body {
 }
 .search-button-text {
   margin-left: 5px;
+}
+
+/* ------ PAGE-CONTENT ------ */
+.page-content {
+  margin-top: 42px;
+  display: grid;
+  grid-template-columns: 9fr 3fr;
+  grid-column-gap: 30px;
+}
+.card-image {
+  border-radius: 10px;
+  width: 264px;
+  height: 178px;
+  object-fit: cover;
+  cursor: pointer;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.card {
+  margin-bottom: 20px;
+  max-width: 264px;
+}
+.card-title {
+  font-size: 16px;
+  line-height: 19px;
+  color: #256EEB;
+  margin-top: 12px;
+  cursor: pointer;
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.like {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  margin-left: 15px;
+}
+.card-price {
+  display: block;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 10px;
+}
+.card-text {
+  font-size: 14px;
+  line-height: 16px;
+  color: #C4C4C4;
+  margin-bottom: 4px;
+  margin-top: 0;
+}
+.sidebar .page-title {
+  font-size: 18px;
+  line-height: 21px;
+}
+.services {
+  margin-bottom: 25px;
+}
+.service-title {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  margin-top: 7px;
+  margin-bottom: 5px;
+}
+.service-text {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 16px;
+  max-width: 217px;
+}
+.footer-text {
+  font-size: 14px;
+  line-height: 16px;
+  color: #C4C4C4;
+  margin-bottom: 5px;
+}
+.footer-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-bottom: 16px;
+}
+.footer-link {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+  margin-bottom: 5px;
 }
