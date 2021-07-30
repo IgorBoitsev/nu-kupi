@@ -1,6 +1,9 @@
 const mainSection = document.querySelector('.main'),
       sidebar = document.querySelector('.sidebar'),
-      servicesOrCommercial = document.querySelector('.services-or-commercial');
+      servicesOrCommercial = document.querySelector('.services-or-commercial'),
+      menuBtn = document.querySelector('.menu-button')
+      closeBtn = document.querySelector('.close-button'),
+      navbarPanel = document.querySelector('.navbar-panel');
 
 // Набор сервисов для сайдбара
 const services = {
@@ -344,7 +347,18 @@ mainSection.addEventListener('click', event => {
 mainSection.addEventListener('click', event => {
   // Возврат на главную страницы
   if (event.target.closest('.button-back')) {
+    document.title = 'Ну купи!';
     renderItemsList(createCardGood);
     renderSevicesList(services);
   }
+})
+
+menuBtn.addEventListener('click', () => {
+  navbarPanel.style.transform = 'translateX(0)';
+  navbarPanel.style.opacity = '1';
+})
+
+closeBtn.addEventListener('click', () => {
+  navbarPanel.style.transform = 'translateX(100%)';
+  navbarPanel.style.opacity = '0';
 })
